@@ -1,6 +1,74 @@
 # DNA_UAV_Swarm
 Welcome to team Defend Now Attack (DNA) github page. We are a team that represent the University of Southampton in the BAE 2020 UAV Swarm Challenge.
 
+## A quick guide to git and GitHub
+### Git - a version control system
+Every developer has a “repository” where all their code is being stored and there is a remote repository stored in the cloud. Differences and changes are stored locally on each developer machine, the remote will only be updated when the repos are “merged” together. This allows individual or subgroups to work on their particular feature without affecting the full code of the entire team. The versions of the code uploaded to the cloud are stored and can be returned to at any time if decided that the new changes are to be discarded.
+
+### Basic terminal/command prompt navigation commands
+1. To display the folders present within the current directory: `ls` (Mac) `dir` (Windows)
+2. To navigate into certain folders: `cd "FOLDER NAME"`
+
+### Installing git
+1.	Downloading git
+   1.	Visit https://git-scm.com/ . 
+   2.	Go to Downloads page and download git for your operating system.
+   3.	Follow the install instructions which are self-explanatory.
+2.	Check that git is installed correctly on your machine:
+   1.	Open up your terminal (Mac)/command prompt(Windows).
+   2.	Type the command `git --version` to verify that git is correctly installed.
+3.	Set global variables – your git username and email to let people from GitHub know who you are when you make changes
+   1.	`git config --global user.name "YOUR NAME HERE"` to set your name.
+   2.	`git config --global user.email "YOUR EMAIL HERE"` to set your email.
+   3.	`git config --list` to check if global variables are set.
+
+### Initialise git repository from code you already have
+1.	If you want to start using git on your code:
+   1. Navigate to your local folder in your system using `cd "PATH"` (different slashes in Windows and Mac).
+   2. `git init` to start using git for that folder.
+2. A typical commit procedure **IMPORTANT**
+   1. A commit is when you have some edits to your code and you want to tell git that you are satisfied with the code and want to store this checkpoint.
+   2. `git status` shows which changes have been made to your repository since your last commit.
+      * There might be files that you do not want to be tracked with git (personal settings files/folders).
+      * To ignore these, create a `.gitignore` file (exact name) and write the name of the files and folders to be ignored. (demo)
+   3. There are three states in git: Working directory, Staging area and Repository (image)
+      1. Working directory is where the code changes happen. Untracked and altered files in this state will show up when `git status` is run
+      2. Staging area is where we organise our files to be committed. This is for when you want to only commit certain files while leaving other files which are still in the works to be committed later. For our application, we just stage all the files since we are relatively small.
+         * `git add -A` to stage **all** changes.
+         * `git status` to check the staged files before commit.
+      3. Repository is where the code will be stored after committing.
+         * `git commit -m "COMMIT MESSAGE HERE"` to commit. The commit message goes into the quotation marks, these should be detailed highlighting what has been changed to make going back easier.
+         * `git status` to check (just for peace of mind at this point)
+         * `git log` to read all commit messages and more details about the commits. Press `q` to exit the log if there are many commits already.
+
+### Cloning git repository (remote from somewhere, most often GitHub)
+1. If you want to download a remote repository into your local machine for development:
+   1. Go to GitHub and obtain the URL of the git repo.
+   2. `git clone <url> <where to clone>` to clone the repository. (demo)
+      * `<url>` is the URL of the git repo.
+      * `<where to clone>` is the path at which you want the repo to be cloned to (if left empty, it will be at the current directory - this is normally what we do since we navigate to our destination before cloning).
+2. Once you have the repo on your machine, you can edit your changes and commit just as before, but you need to push this to the remote repository if you want the effect to appear at the remote repo. The typical workflow is as follows - similar to before but with 1 extra step at the end **IMPORTANT** (demo)
+   1. *Edit code*
+   2. `git diff` to display the changes being made
+   3. `git status` to check the changes
+   4. `git add -A` stage all changes
+   5. `git commit -m "COMMIT MESSAGE HERE"` to commit changes with a comment
+   6. `git pull origin master` to pull from the remote repo to ensure that the local code is up to date with the remote code (others have made commits while you are working on your feature) **always try to pull before pushing**
+   7. `git push origin master` to push your changes from your local repo to the remote repo
+
+### Branching
+So far we have been committing straight to the master branch , `git branch -a` to check remote repository branches, but this is a terrible idea when multiple people are working on the same project. Branching is almost always compulsory when working with groups to ensure changes get peered review before getting committed. There can be a branch of a branch of a branch, i.e. the circle detection branch of the dna_eyes branch. (demo workflow)
+1. If you are working on a particular feature, create a branch for that feature and enter that branch.
+   1. `git branch <branch_name>` to create a branch (no spaces and no quotation marks).
+   2. `git branch` to check the branches available locally. The asterisk next to branch indicate the branch you are currently on.
+   3. `git checkout <branch_name>` to enter that branch and start work. Check that you switched branch by `git branch`.
+2. Once in this branch, you can work just as before, create local commits etc.
+3. After finishing the changes, you push the local changes to the remote repo:
+   1. `git push -u origin <branch_name>` to push changes locally on that branch to the remote repository branch. origin is the name of the remote repository.
+   2. `git branch -a` to check the branches at the remote repository.
+4. Now to merge the branches in the remote repository.
+   * This is done on GitHub, or in git itself. To do it in git, you checkout to the master branch, pull the changes from origin master, merge the branch using `git merge <branch_name>` and then push to origin master. However, when using GitHub, you can make what is called a pull request and this means others will need to check your code before committing and merging the branch. This is the preferred way because it encourages peer review.
+
 ## DNA_Eyes
 This is the sub-group within our team that is reponsible for providing vision for the team.
 
