@@ -31,7 +31,7 @@ Every developer has a “repository” where all their code is being stored and 
    2. `git status` shows which changes have been made to your repository since your last commit.
       * There might be files that you do not want to be tracked with git (personal settings files/folders).
       * To ignore these, create a `.gitignore` file (exact name) and write the name of the files and folders to be ignored. (demo)
-   3. There are three states in git: Working directory, Staging area and Repository (image)
+   3. There are three states in git: Working directory, Staging area and Repository [image](https://miro.medium.com/max/686/1*diRLm1S5hkVoh5qeArND0Q.png)
       1. Working directory is where the code changes happen. Untracked and altered files in this state will show up when `git status` is run
       2. Staging area is where we organise our files to be committed. This is for when you want to only commit certain files while leaving other files which are still in the works to be committed later. For our application, we just stage all the files since we are relatively small.
          * `git add -A` to stage **all** changes.
@@ -68,6 +68,9 @@ So far we have been committing straight to the master branch , `git branch -a` t
    2. `git branch -a` to check the branches at the remote repository.
 4. Now to merge the branches in the remote repository.
    * This is done on GitHub, or in git itself. To do it in git, you checkout to the master branch, pull the changes from origin master, merge the branch using `git merge <branch_name>` and then push to origin master. However, when using GitHub, you can make what is called a pull request and this means others will need to check your code before committing and merging the branch. This is the preferred way because it encourages peer review.
+
+### Documentation
+I do not know everything and thus cannot cover everything. I have been using git to track my IP but have not used it in a company setting so branching is not a fimiliar thing for me and I am learning along with you guys. Therefore, I recommend that you guys read the [documentation](https://git-scm.com/book/en/v2) as your bedtime reading.
 
 ## DNA_Eyes
 This is the sub-group within our team that is reponsible for providing vision for the team.
