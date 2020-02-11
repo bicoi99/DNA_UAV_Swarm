@@ -68,9 +68,38 @@ So far we have been committing straight to the master branch , `git branch -a` t
       2. `git branch -a` to check the branches at the remote repository.
 4. Now to merge the branches in the remote repository.
    * This is done on GitHub, or in git itself. To do it in git, you checkout to the master branch, pull the changes from origin master, merge the branch using `git merge <branch_name>` and then push to origin master. However, when using GitHub, you can make what is called a pull request and this means others will need to check your code before committing and merging the branch. This is the preferred way because it encourages peer review.
+   * It is customary to delete the branch once you have merged the branch into master so you can do it via GitHub or `git branch -d <branch_name>` to delete branch locally and `git push origin --delete <branch_name>` to delete branch at remote repo.
+
+### Reverting changes
+When you made a mistake in your commit and want to go back to a previous commit, git shows its strength.
+
+1. `git log` to display the commits, find the hash value of the commit you want to go back to.
+2. `git revert <commit_hash>` to revert the changes made by this commit and you are back at this point.
+
+### Full workflow commands, demo
+1. *At the master branch, just finished cloning the remote repo (maths_functions). Now want to make some changes to a particular feature (subtract)*.
+2. `git branch substract` to create a substract branch locally.
+3. `git checkout substract` switch go to this branch.
+4. *Edit code*.
+5. `git status` to see the changes have been registered.
+6. `git add -A` to stage changes.
+7. `git commit -m "Added substract feature"` to commit changes locally.
+8. `git push -u origin substract` to push the changes and the branch to the remote repo.
+9. Go to GitHub and make a pull request to let other check your work,
+10. If everything is good, merge the changes and delete the branch on GitHub or through terminal like this:
+11. `git checkout master` to go to master branch,
+12. `git pull origin master` to pull down any changes made at remote repo.
+13. `git merge substract` to merge the branch.
+14. `git push origin master` to push the merge to the repository.
+15. `git branch -d substract` to delete branch locally.
+16. `git push --delete substract` to delete branch at remote repo.
+17. `git status` to find the commit hash to revert.
+18. `git revert <commit_hash>` to rever to before that commit.
 
 ### Documentation
 I do not know everything and thus cannot cover everything. I have been using git to track my IP but have not used it in a company setting so branching is not a fimiliar thing for me and I am learning along with you guys. Therefore, I recommend that you guys read the [documentation](https://git-scm.com/book/en/v2) as your bedtime reading.
+
+This guide is largely inspired by this [video](https://www.youtube.com/watch?v=HVsySz-h9r4&t), so all the credits go to him. Do give this a watch if you want a different delivery on the same content.
 
 ## DNA_Eyes
 This is the sub-group within our team that is reponsible for providing vision for the team.
