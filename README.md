@@ -74,7 +74,9 @@ So far we have been committing straight to the master branch , `git branch -a` t
 When you made a mistake in your commit and want to go back to a previous commit, git shows its strength.
 
 1. `git log` to display the commits, find the hash value of the commit you want to go back to.
-2. `git revert <commit_hash>` to revert the changes made by this commit and you are back at this point.
+2. `git revert <commit_hash>` to revert the changes made by this commit. `:wq` to exit out of revert message.
+3. **Dangerous** `git reset --hard <commit_hash>` or without the `--hard` to go back to a commit and discarding all the commits in between.
+4. **Dangerous** `git push -f origin master` to force push the reset.
 
 ### Full workflow commands, demo
 1. *At the master branch, just finished cloning the remote repo (maths_functions). Now want to make some changes to a particular feature (subtract)*.
@@ -92,9 +94,9 @@ When you made a mistake in your commit and want to go back to a previous commit,
 13. `git merge substract` to merge the branch.
 14. `git push origin master` to push the merge to the repository.
 15. `git branch -d substract` to delete branch locally.
-16. `git push --delete substract` to delete branch at remote repo.
-17. `git status` to find the commit hash to revert.
-18. `git revert <commit_hash>` to rever to before that commit.
+16. `git push origin --delete substract` to delete branch at remote repo.
+17. `git status` and `git branch -a` to check and `git log` to find the commit hash to revert.
+18. `git revert <commit_hash>` to revert that commit. `git reset <commit_hash>` to reset to that commit.
 
 ### Documentation
 I do not know everything and thus cannot cover everything. I have been using git to track my IP but have not used it in a company setting so branching is not a fimiliar thing for me and I am learning along with you guys. Therefore, I recommend that you guys read the [documentation](https://git-scm.com/book/en/v2) as your bedtime reading.
