@@ -24,7 +24,10 @@ print(heirarchy)
 # else:
 #     print("No circles found")
 
-cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
+canvas = np.zeros((626, 626, 3))
+cv2.drawContours(canvas, contours, -1, (0, 255, 0), 3)
 
-plt.imshow(img)
+plt.imshow(canvas)
 plt.show()
+
+cv2.HoughCircles()
