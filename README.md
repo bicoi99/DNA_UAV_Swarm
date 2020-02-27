@@ -1,29 +1,37 @@
 # DNA_UAV_Swarm
+
 Welcome to team Defend Now Attack (DNA) github page. We are a team that represent the University of Southampton in the BAE 2020 UAV Swarm Challenge.
 
+---
+
 ## A quick guide to git and GitHub
+
 ### Git - a version control system
+
 Every developer has a “repository” where all their code is being stored and there is a remote repository stored in the cloud. Differences and changes are stored locally on each developer machine, the remote will only be updated when the repos are “merged” together. This allows individual or subgroups to work on their particular feature without affecting the full code of the entire team. The versions of the code uploaded to the cloud are stored and can be returned to at any time if decided that the new changes are to be discarded.
 
 ### Basic terminal/command prompt navigation commands
+
 1. To display the folders present within the current directory: `ls` (Mac) `dir` (Windows)
 2. To navigate into certain folders: `cd "FOLDER NAME"`
 
 ### Installing git
-1.	Downloading git
-      1.	Visit https://git-scm.com/ . 
-      2.	Go to Downloads page and download git for your operating system.
-      3.	Follow the install instructions which are self-explanatory.
-2.	Check that git is installed correctly on your machine:
-      1.	Open up your terminal (Mac)/command prompt(Windows).
-      2.	Type the command `git --version` to verify that git is correctly installed.
-3.	Set global variables – your git username and email to let people from GitHub know who you are when you make changes
-      1.	`git config --global user.name "YOUR NAME HERE"` to set your name.
-      2.	`git config --global user.email "YOUR EMAIL HERE"` to set your email.
-      3.	`git config --list` to check if global variables are set.
+
+1. Downloading git
+      1. Visit [git website](https://git-scm.com/).
+      2. Go to Downloads page and download git for your operating system.
+      3. Follow the install instructions which are self-explanatory.
+2. Check that git is installed correctly on your machine:
+      1. Open up your terminal (Mac)/command prompt(Windows).
+      2. Type the command `git --version` to verify that git is correctly installed.
+3. Set global variables – your git username and email to let people from GitHub know who you are when you make changes
+      1. `git config --global user.name "YOUR NAME HERE"` to set your name.
+      2. `git config --global user.email "YOUR EMAIL HERE"` to set your email.
+      3. `git config --list` to check if global variables are set.
 
 ### Initialise git repository from code you already have
-1.	If you want to start using git on your code:
+
+1. If you want to start using git on your code:
       1. Navigate to your local folder in your system using `cd "PATH"` (different slashes in Windows and Mac).
       2. `git init` to start using git for that folder.
 2. A typical commit procedure **IMPORTANT**
@@ -42,6 +50,7 @@ Every developer has a “repository” where all their code is being stored and 
             * `git log` to read all commit messages and more details about the commits. Press `q` to exit the log if there are many commits already.
 
 ### Cloning git repository (remote from somewhere, most often GitHub)
+
 1. If you want to download a remote repository into your local machine for development:
       1. Go to GitHub and obtain the URL of the git repo.
       2. `git clone <url> <where to clone>` to clone the repository. (demo)
@@ -57,7 +66,9 @@ Every developer has a “repository” where all their code is being stored and 
       7. `git push origin master` to push your changes from your local repo to the remote repo
 
 ### Branching
+
 So far we have been committing straight to the master branch , `git branch -a` to check remote repository branches, but this is a terrible idea when multiple people are working on the same project. Branching is almost always compulsory when working with groups to ensure changes get peered review before getting committed. There can be a branch of a branch of a branch, i.e. the circle detection branch of the dna_eyes branch. (demo workflow)
+
 1. If you are working on a particular feature, create a branch for that feature and enter that branch.
       1. `git branch <branch_name>` to create a branch (no spaces and no quotation marks).
       2. `git branch` to check the branches available locally. The asterisk next to branch indicate the branch you are currently on.
@@ -71,6 +82,7 @@ So far we have been committing straight to the master branch , `git branch -a` t
    * It is customary to delete the branch once you have merged the branch into master so you can do it via GitHub or `git branch -d <branch_name>` to delete branch locally and `git push origin --delete <branch_name>` to delete branch at remote repo.
 
 ### Reverting changes
+
 When you made a mistake in your commit and want to go back to a previous commit, git shows its strength.
 
 1. `git log` to display the commits, find the hash value of the commit you want to go back to.
@@ -79,6 +91,7 @@ When you made a mistake in your commit and want to go back to a previous commit,
 4. **Dangerous** `git push -f origin master` to force push the reset.
 
 ### Full workflow commands, demo
+
 1. *At the master branch, just finished cloning the remote repo (maths_functions). Now want to make some changes to a particular feature (subtract)*.
 2. `git branch substract` to create a substract branch locally.
 3. `git checkout substract` switch go to this branch.
@@ -99,23 +112,33 @@ When you made a mistake in your commit and want to go back to a previous commit,
 18. `git revert <commit_hash>` to revert that commit. `git reset <commit_hash>` to reset to that commit.
 
 ### Documentation
+
 I do not know everything and thus cannot cover everything. I have been using git to track my IP but have not used it in a company setting so branching is not a fimiliar thing for me and I am learning along with you guys. Therefore, I recommend that you guys read the [documentation](https://git-scm.com/book/en/v2) as your bedtime reading.
 
 This guide is largely inspired by this [video](https://www.youtube.com/watch?v=HVsySz-h9r4&t), so all the credits go to him. Do give this a watch if you want a different delivery on the same content.
 
+---
+
 ## DNA_Eyes
+
 This is the sub-group within our team that is reponsible for providing vision for the team.
 
 So far I have created a folder for my sub-group to experiment with OpenCV, particularly the Hough Transform for circle detection. Several other image processing techniques are to be explore when completing the tasks provided (colour segmentation, grayscaling, thresholding, Canny edge detection etc.).
 
+27/2/2020 - I have pushed my work on the OpenCV test Android app onto GitHub for easy access. Please find the instructions for setting up OpenCV Android within your project below.
+
+---
+
 ### Instructions for first few familiarising tasks
-**Getting the files**
+
+#### Getting the files
+
 1. If you are familiar with GitHub then clone this repo and everything is included
 2. If you are not then simply go into DNA_Eyes/images folder and grab all the images for your own use
 
-**Tasks**
+#### Tasks
 
-_To complete this task, you should know how to read in images to Python using OpenCV, convert between different colour spaces (grayscale, RGB, BGR etc.), conditionals and loops, array slicing and OpenCV drawing functions for plotting and displaying results (circle, rectangle, lines, etc.). Tutorials for these are readily with a simple google search, I will leave that to you to do on your own but I have included some links to Hough Circle Transform below for you to navigate, those two websites are my go-to when learning OpenCV so utilise those where possible_
+To complete this task, you should know how to read in images to Python using OpenCV, convert between different colour spaces (grayscale, RGB, BGR etc.), conditionals and loops, array slicing and OpenCV drawing functions for plotting and displaying results (circle, rectangle, lines, etc.). Tutorials for these are readily with a simple google search, I will leave that to you to do on your own but I have included some links to Hough Circle Transform below for you to navigate, those two websites are my go-to when learning OpenCV so utilise those where possible.
 
 1. Attempt to find circles using provided function
    * Use OpenCV to find circle in the single circle image.
@@ -126,7 +149,26 @@ _To complete this task, you should know how to read in images to Python using Op
    * You will notice that the algorithm fails at finding ovals - finding no circles on oval images
    * Algorithm also fails/functions incorrectly on the concentric circles. This is a fundamental flaw of this Hough Transform, how might you rectify this, what other techniques can you implement to detect center of circles (because at the end we only want to center of the circles to find the distance difference to the center of our screen).
 
-**Useful links with background and examples**
+#### Useful links with background and examples
+
 * Hough circle transform - main algorithm we are interested in
-   * Documentation: https://docs.opencv.org/4.2.0/d4/d70/tutorial_hough_circle.html
-   * OpenCV-Python Tutorials: https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_houghcircles/py_houghcircles.html
+  * [documentation](https://docs.opencv.org/4.2.0/d4/d70/tutorial_hough_circle.html)
+  * [OpenCV-Python Tutorials](https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_houghcircles/py_houghcircles.html)
+
+---
+
+### Instructions for setting up OpenCV Android in Android Studio
+
+Here is the quick instruction for setting up OpenCV Android. If you clone this project, the module has already been imported but this instruction is for use when implementing into the DJI sdk app.
+
+#### Download OpenCV Android
+
+1. Visit OpenCV Android release [page](https://opencv.org/releases/) and download the version of OpenCV that you want to use. I have setup using OpenCV 3.4.9.
+2. After downloading the zip file, extract it to a location, normally it is the `C:\` home directory.
+3. Within your Android Studio project, go to `File > New > Import Module`.
+4. Find the unzipped folder and select the folder `OpenCV-android-sdk > sdk > java.` You can rename this library to your liking.
+5. In Android Studio, open `build.gradle(:app)` and `build.gradle(:openCVLibrary349)` or your library name. Ensure that the `compileSdkVersion`, `buildToolsVersion`, `minSdkVersion` and `targetSdkVersion` variable within `build.gradle(:openCVLibrary349)` match those in `build.gradle(:app)`. After that, press `Sync Now`.
+6. On the project bar of Android Studio, go to the `openCVLibrary349 > manifest` and open the `AndroidManifest.xml` file. Remove the `<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="21" />` line.
+7. Next, go to `File > Project Structure`. In Dependencies tab, `<All Modules>` are selected, press the + arrow and go to `Module Dependency`. Select app, then tick the `openCVLibrary349`. Press OK to everything.
+8. Right click on app on the left files and go to `New > Folders > JNI Folder`. Click on `Change Folder Location` and rename `src/main/jni/` to `src/main/jniLibs/`.
+9. Go to `OpenCV-android-sdk > sdk >native > libs` and copy all the files. Paste these into the `app > src > main > jniLibs` folder.

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">OpenCVTestApp</string>
+    <string name="gallery">Gallery</string>
+    <string name="gray">Gray</string>
+    <string name="image_pic">Pick Image</string>
+</resources>
